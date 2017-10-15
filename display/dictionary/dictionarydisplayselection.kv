@@ -1,0 +1,49 @@
+Screen:
+
+    GridLayout:
+        cols: 1
+
+        TeamsGrid:
+        ScoreGrid:
+
+<TeamsGrid@GridLayout>:
+    rows: 1
+    padding: '50dp', '20dp'
+    spacing: '10dp'
+
+    TeamsView:
+        name: 'left'
+    TeamsView:
+        name: 'right'
+
+<ScoreGrid>:
+    cols: 2
+
+    TeamName:
+        id: left_name
+
+    TeamName:
+        id: right_name
+
+    TeamScore:
+        id: left_score
+        bgcolor: 0.1, 0.1, 0.3
+
+    TeamScore:
+        id: right_score
+        bgcolor: 0.3, 0.1, 0.1
+
+<TeamName@Label>:
+    size_hint_y: 0.1
+    text: 'score'
+
+<TeamScore@Label>:
+    markup: True
+    bgcolor: 0, 0, 0
+
+    canvas.before:
+        Color:
+            rgb: self.bgcolor
+        Rectangle:
+            pos: self.pos
+            size: self.size

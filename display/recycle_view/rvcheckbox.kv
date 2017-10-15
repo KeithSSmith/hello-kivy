@@ -1,0 +1,22 @@
+<MyViewClass>:
+    orientation: 'horizontal'
+    CheckBox:
+        on_state: root.set_state(self.state,app)
+    Label:
+        text: root.text
+
+BoxLayout:
+    orientation: 'vertical'
+    MyRecycleView:
+        id: rv
+        viewclass: 'MyViewClass'
+        RecycleBoxLayout:
+            orientation: 'vertical'
+            default_size: None, dp(56)
+            default_size_hint: 1, None
+            size_hint_y: None
+            height: self.minimum_height
+    Button:
+        size_hint_y: 0.1
+        text: "Print data"
+        on_release: rv.print_data(rv.data)
